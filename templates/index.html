@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include 'navebarre/navbar.html' %}
+<div class="p-4">
+  <div class="p-auto">
+    <h3 class="text-center pb-4">BIENVENU SUR NOTRE BLOG</h3>
+  </div>
+  <div class="border border-dark p-3 mb-5 border-opacity-75 rounded-4">
+    <p>Chers lecteurs,<br/>
+
+      Nous sommes ravis de vous accueillir sur notre blog, un espace dédié à 
+      l'échange et à la découverte. Ici, vous trouverez des articles variés sur 
+      des sujets passionnants comme la technologie, l'art, et l'éducation.<br/>
+    
+      Nous voulons créer une communauté où chacun peut partager ses idées et 
+      apprendre des autres. N'hésitez pas à explorer, commenter, et partager 
+      les articles qui vous plaisent.<br/>
+  
+      Merci de nous rejoindre dans cette aventure. Ensemble, faisons de ce blog 
+      un lieu dynamique et enrichissant.<br/>
+    
+      Avec gratitude,<br/>
+    
+      L'équipe du Blog<br/>
+    </p>
+  </div>
+
+  <div class="text-center">
+    <a href="{% url 'page1' %}" class="btn btn-dark">aller à...</a>
+  </div>
+</div>
+{% endblock %}
