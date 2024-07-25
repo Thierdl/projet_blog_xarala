@@ -1,4 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">Créer Une Article</h1>
+{% include 'partiels/navbar.html' %}
+<h3 class="text-center mt-5 pt-3">Créer Une Article</h3>
+<div class="container">
+  <div class="col-md-5 m-auto">
+    <div class="card card-body">
+      <form method="POST"> {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Titre</label>
+          <input type="text" class="form-control" name="title"/>
+        </div>
+
+        <div class="mb-3">
+          <label for="summary" class="form-label">Résumé</label>
+          <textarea class="form-control" name="summary"></textarea>  
+        </div>
+
+        <div class="mb-3">
+          <label for="floatingTextarea2">Contenu</label>
+          <textarea class="form-control" name="content"></textarea>  
+        </div>
+
+        <div class="mb-3">
+          <label for="author" class="form-label">Auteur</label>
+          <input type="text" class="form-control" name="author"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        
+      </form>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

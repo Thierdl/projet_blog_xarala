@@ -1,63 +1,181 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">La liste des Articles</h1>
+{% include 'partiels/navbar.html' %}
+<div class="container">
+  <div class="title mt-5 pt-2">
+    <h1 class="text-center">La liste des Articles</h1>
+  </div>
+
+  <div class="card p-3 card-body">
+
+    <div class="container">
+      <div>
+        <h5 class="">Introduction à Django</h5>
+      </div>
+
+      <div class="text-justify" >
+        <p>
+          Lorsque vous naviguez sur votre site web préféré, tout semble simple et 
+          fluide. Vous cliquez sur des liens, remplissez des formulaires, et les 
+          informations apparaissent comme par magie. Cependant, derrière cette 
+          simplicité apparente se cache une infrastructure complexe et sophistiquée : 
+          le backend. Dans cet article, nous allons explorer ce qu'est le backend, 
+          son importance, et les technologies clés qui le composent.</br>
+
+          <h5>Qu'est-ce que le Backend?</h5>
+          Le backend fait référence à la partie d'une application web qui fonctionne 
+          derrière les coulisses. Contrairement au frontend, qui est l'interface 
+          utilisateur visible et interactive, le backend gère les opérations, les bases 
+          de données, et la logique métier. Il s'assure que tout fonctionne correctement 
+          et de manière sécurisée.</br>
+          
+          Principales Responsabilités du Backend</br>
+          Gestion des Bases de Données : Le backend stocke, récupère, et manipule les 
+          données. Cela inclut des actions comme l'inscription des utilisateurs, la 
+          gestion des profils, et la sauvegarde des contenus créés par les utilisateurs.</br>
+          
+          Logique Métier : C'est le cerveau de l'application. Il applique les règles et 
+          les conditions qui déterminent comment les données sont manipulées et présentées 
+          à l'utilisateur.</br>
+          
+          Sécurité : Le backend protège les données sensibles et assure que seules les 
+          personnes autorisées peuvent accéder à certaines informations ou fonctionnalités.</br>
+          
+          Intégration avec des Services Externes : Le backend communique souvent avec 
+          d'autres services et API pour obtenir ou envoyer des données.</br>
+          
+          Les Technologies du Backend</br>
+          Le développement backend peut impliquer plusieurs technologies et langages 
+          de programmation. Voici quelques-unes des plus courantes :</br>
+          
+          <h5>Langages de Programmation</h5>
+          Python : Connu pour sa simplicité et sa lisibilité, Python est largement 
+          utilisé dans le développement backend. Des frameworks comme Django et Flask 
+          facilitent la création d'applications robustes et scalables.</br>
+          
+          JavaScript (Node.js) : Avec l'arrivée de Node.js, JavaScript est devenu un 
+          acteur majeur du développement backend. Node.js permet d'exécuter JavaScript 
+          côté serveur, offrant une grande flexibilité et une performance élevée.</br>
+          
+          Ruby : Ruby on Rails est un framework backend populaire qui permet un 
+          développement rapide grâce à sa convention sur la configuration.</br>
+          
+          PHP : Utilisé principalement pour le développement web, PHP est la base 
+          de nombreux sites et applications, incluant WordPress.</br>
+          
+          <h5>Bases de Données</h5>
+          SQL : Les bases de données relationnelles comme MySQL, PostgreSQL, et 
+          SQLite utilisent le langage SQL pour gérer les données structurées.</br>
+          
+          NoSQL : Des bases de données comme MongoDB et Cassandra permettent de 
+          stocker des données non structurées ou semi-structurées, offrant une grande flexibilité.</br>
+          
+          <h5>Frameworks et Outils</h5>
+          Django : Un framework Python qui simplifie la création d'applications 
+          web complètes avec une structure organisée et sécurisée.</br>
+          
+          Express.js : Un framework minimaliste pour Node.js qui permet de 
+          construire des applications et des API rapidement.</br>
+          
+          Spring Boot : Un framework Java qui facilite le développement de 
+          microservices.</br>
+          
+          </h5>L'Importance du Backend</br>
+          Le backend est crucial pour plusieurs raisons :</br>
+          
+          Performance : Il détermine la rapidité et l'efficacité avec lesquelles 
+          une application peut traiter les requêtes des utilisateurs.</br>
+          
+          Sécurité : Il protège les données des utilisateurs et s'assure que les 
+          transactions sont sécurisées.</br>
+          
+          Scalabilité : Un bon backend peut gérer une augmentation du nombre 
+          d'utilisateurs et de données sans perte de performance.</br>
+          
+          </h5>Conclusion</h5>
+          Le backend est le pilier invisible des applications web modernes. 
+          Il gère tout, de la sécurité à la gestion des données, en passant 
+          par la logique métier. Comprendre le backend, c'est comprendre 
+          comment les applications fonctionnent vraiment. Que vous soyez 
+          un développeur débutant ou expérimenté, maîtriser les technologies 
+          backend est essentiel pour créer des applications performantes et 
+          sécurisées.</br></p>
+      </div>
+    </div> 
+  </div>
+</div>
+{% endblock %}
+
+
+<div class="content">
+
+<div class="title">
+  <h1 class="text-center">La liste des Articles</h1>
+</div>
 
 <div class="card p=auto" style="width: 50rem;">
   <div class="card-body">
-    <h5 class="card-title">Introduction à Django</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-    <p class="card-text">Lorsque vous naviguez sur votre site web préféré, tout semble simple et fluide. Vous cliquez sur des liens, remplissez des formulaires, et les informations apparaissent comme par magie. Cependant, derrière cette simplicité apparente se cache une infrastructure complexe et sophistiquée : le backend. Dans cet article, nous allons explorer ce qu'est le backend, son importance, et les technologies clés qui le composent.
+    <div></div>
+      <h5 class="card-title">Introduction à Django</h5>
+    </div>
 
-      Qu'est-ce que le Backend?
-      Le backend fait référence à la partie d'une application web qui fonctionne derrière les coulisses. Contrairement au frontend, qui est l'interface utilisateur visible et interactive, le backend gère les opérations, les bases de données, et la logique métier. Il s'assure que tout fonctionne correctement et de manière sécurisée.
-      
-      Principales Responsabilités du Backend
-      Gestion des Bases de Données : Le backend stocke, récupère, et manipule les données. Cela inclut des actions comme l'inscription des utilisateurs, la gestion des profils, et la sauvegarde des contenus créés par les utilisateurs.
-      
-      Logique Métier : C'est le cerveau de l'application. Il applique les règles et les conditions qui déterminent comment les données sont manipulées et présentées à l'utilisateur.
-      
-      Sécurité : Le backend protège les données sensibles et assure que seules les personnes autorisées peuvent accéder à certaines informations ou fonctionnalités.
-      
-      Intégration avec des Services Externes : Le backend communique souvent avec d'autres services et API pour obtenir ou envoyer des données.
-      
-      Les Technologies du Backend
-      Le développement backend peut impliquer plusieurs technologies et langages de programmation. Voici quelques-unes des plus courantes :
-      
-      1. Langages de Programmation
-      Python : Connu pour sa simplicité et sa lisibilité, Python est largement utilisé dans le développement backend. Des frameworks comme Django et Flask facilitent la création d'applications robustes et scalables.
-      
-      JavaScript (Node.js) : Avec l'arrivée de Node.js, JavaScript est devenu un acteur majeur du développement backend. Node.js permet d'exécuter JavaScript côté serveur, offrant une grande flexibilité et une performance élevée.
-      
-      Ruby : Ruby on Rails est un framework backend populaire qui permet un développement rapide grâce à sa convention sur la configuration.
-      
-      PHP : Utilisé principalement pour le développement web, PHP est la base de nombreux sites et applications, incluant WordPress.
-      
-      2. Bases de Données
-      SQL : Les bases de données relationnelles comme MySQL, PostgreSQL, et SQLite utilisent le langage SQL pour gérer les données structurées.
-      
-      NoSQL : Des bases de données comme MongoDB et Cassandra permettent de stocker des données non structurées ou semi-structurées, offrant une grande flexibilité.
-      
-      3. Frameworks et Outils
-      Django : Un framework Python qui simplifie la création d'applications web complètes avec une structure organisée et sécurisée.
-      
-      Express.js : Un framework minimaliste pour Node.js qui permet de construire des applications et des API rapidement.
-      
-      Spring Boot : Un framework Java qui facilite le développement de microservices.
-      
-      L'Importance du Backend
-      Le backend est crucial pour plusieurs raisons :
-      
-      Performance : Il détermine la rapidité et l'efficacité avec lesquelles une application peut traiter les requêtes des utilisateurs.
-      
-      Sécurité : Il protège les données des utilisateurs et s'assure que les transactions sont sécurisées.
-      
-      Scalabilité : Un bon backend peut gérer une augmentation du nombre d'utilisateurs et de données sans perte de performance.
-      
-      Conclusion
-      Le backend est le pilier invisible des applications web modernes. Il gère tout, de la sécurité à la gestion des données, en passant par la logique métier. Comprendre le backend, c'est comprendre comment les applications fonctionnent vraiment. Que vous soyez un développeur débutant ou expérimenté, maîtriser les technologies backend est essentiel pour créer des applications performantes et sécurisées.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <div>
+      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+    </div>
+    
+    <div class="content">
+      <p class="card-text">
+        Lorsque vous naviguez sur votre site web préféré, tout semble simple et fluide. Vous cliquez sur des liens, remplissez des formulaires, et les informations apparaissent comme par magie. Cependant, derrière cette simplicité apparente se cache une infrastructure complexe et sophistiquée : le backend. Dans cet article, nous allons explorer ce qu'est le backend, son importance, et les technologies clés qui le composent.
+
+        Qu'est-ce que le Backend?
+        Le backend fait référence à la partie d'une application web qui fonctionne derrière les coulisses. Contrairement au frontend, qui est l'interface utilisateur visible et interactive, le backend gère les opérations, les bases de données, et la logique métier. Il s'assure que tout fonctionne correctement et de manière sécurisée.
+        
+        Principales Responsabilités du Backend
+        Gestion des Bases de Données : Le backend stocke, récupère, et manipule les données. Cela inclut des actions comme l'inscription des utilisateurs, la gestion des profils, et la sauvegarde des contenus créés par les utilisateurs.
+        
+        Logique Métier : C'est le cerveau de l'application. Il applique les règles et les conditions qui déterminent comment les données sont manipulées et présentées à l'utilisateur.
+        
+        Sécurité : Le backend protège les données sensibles et assure que seules les personnes autorisées peuvent accéder à certaines informations ou fonctionnalités.
+        
+        Intégration avec des Services Externes : Le backend communique souvent avec d'autres services et API pour obtenir ou envoyer des données.
+        
+        Les Technologies du Backend
+        Le développement backend peut impliquer plusieurs technologies et langages de programmation. Voici quelques-unes des plus courantes :
+        
+        1. Langages de Programmation
+        Python : Connu pour sa simplicité et sa lisibilité, Python est largement utilisé dans le développement backend. Des frameworks comme Django et Flask facilitent la création d'applications robustes et scalables.
+        
+        JavaScript (Node.js) : Avec l'arrivée de Node.js, JavaScript est devenu un acteur majeur du développement backend. Node.js permet d'exécuter JavaScript côté serveur, offrant une grande flexibilité et une performance élevée.
+        
+        Ruby : Ruby on Rails est un framework backend populaire qui permet un développement rapide grâce à sa convention sur la configuration.
+        
+        PHP : Utilisé principalement pour le développement web, PHP est la base de nombreux sites et applications, incluant WordPress.
+        
+        2. Bases de Données
+        SQL : Les bases de données relationnelles comme MySQL, PostgreSQL, et SQLite utilisent le langage SQL pour gérer les données structurées.
+        
+        NoSQL : Des bases de données comme MongoDB et Cassandra permettent de stocker des données non structurées ou semi-structurées, offrant une grande flexibilité.
+        
+        3. Frameworks et Outils
+        Django : Un framework Python qui simplifie la création d'applications web complètes avec une structure organisée et sécurisée.
+        
+        Express.js : Un framework minimaliste pour Node.js qui permet de construire des applications et des API rapidement.
+        
+        Spring Boot : Un framework Java qui facilite le développement de microservices.
+        
+        L'Importance du Backend
+        Le backend est crucial pour plusieurs raisons :
+        
+        Performance : Il détermine la rapidité et l'efficacité avec lesquelles une application peut traiter les requêtes des utilisateurs.
+        
+        Sécurité : Il protège les données des utilisateurs et s'assure que les transactions sont sécurisées.
+        
+        Scalabilité : Un bon backend peut gérer une augmentation du nombre d'utilisateurs et de données sans perte de performance.
+        
+        Conclusion
+        Le backend est le pilier invisible des applications web modernes. Il gère tout, de la sécurité à la gestion des données, en passant par la logique métier. Comprendre le backend, c'est comprendre comment les applications fonctionnent vraiment. Que vous soyez un développeur débutant ou expérimenté, maîtriser les technologies backend est essentiel pour créer des applications performantes et sécurisées.</p>
+    </div>
   </div>
 </div>
 
-{% endblock %}
+
