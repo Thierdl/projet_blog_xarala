@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article
 
 # Create your views here.
@@ -38,7 +38,27 @@ def create_article(request):
   return render(request,"page_s/create_article.html")
 
 
-def update_article(request):
+def update_article(request, id):
+  """article = get_object_or_404(Article, id=id)
+  if request.method == "POST":
+    title = request.POST['title']
+    summary = request.POST['summary']
+    content = request.POST['content']
+    author = request.POST['author']
+
+    article.save()
+  """
+
+  article = get_object_or_404(Article, id=id)
+  if request.method == "POST":
+    article.title = request.POST.get('title')
+    article.summary = request.POST.get('summary')
+    article.content = request.POST.get('content')
+    article.author = request.POSTget('author')
+
+    article.save()
+
+    #return redirect()
   return render(request, "page_s/update_article.html")
 
 
