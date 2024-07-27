@@ -6,6 +6,6 @@ urlpatterns = [
   path('list_article/',views.list_views, name="page1"),
   path('details_article/', views.details_views, name="page2"),
   path('create_article/', views.create_article, name="page3"),
-  path('article/<int:id>/update/',views.update_article, name="page4"),
-
+  path('article/update/<int:id>/',views.update_article, name="page4"),
+  path('delete_article/<int:id>/', views.delete_article, name="delete_article")
 ]

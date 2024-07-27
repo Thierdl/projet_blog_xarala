@@ -1,23 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
-{% include 'partiels/navbar.html' %}
-<h1 class="text-center">Les détails d'un article</h1>
+{% include 'partials/navbar.html' %}
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Comprendre le Backend : Le Cœur Caché des Applications Web</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+<div class="pt-5">
+  <h1 class="text-center pt-5">Les détails d'un article</h1>
+  <div class="container pt-5">
+    {% for article in articles %}
+    <div>
+      <p>Titre :</br> {{ article.title }}</p>
+      <p>Résumé :</br> {{ article.summary }}</p>
+      <p>Contenu :</br> {{ article.content }}</p>
+      <p>Auteur :</br> {{ article.author }}</p>
+      <a href="{% url 'page4' article.id %}" class="btn btn-dark">Modifier</a>
+      
+      <!-- Bouton pour ouvrir la fenêtre modale -->
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{ article.id }}">
+        Supprimer
+      </button>
+      
+      <!-- Fenêtre modale -->
+      <div class="modal fade" id="deleteModal-{{ article.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Confirmation de suppression</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Êtes-vous sûr de vouloir supprimer cet article ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+              <form action="{% url 'delete_article' article.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Supprimer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </div>
 </div>
-
 {% endblock %}
+

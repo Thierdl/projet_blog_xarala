@@ -1,7 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-{% include 'partiels/navbar.html' %}
-<h1 class="text-center">Modifier Détails Article</h1>
+{% include 'partials/navbar.html' %}
+<h3 class="text-center mt-5 pt-3">Modifier Détails Article</h3>
+
+<div class="container">
+  <div class="col-md-5 m-auto">
+    <div class="card card-body">
+      <form method="POST" action="{% url 'page4' article.id %}"> {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Titre</label>
+          <input type="text" class="form-control" name="title" value="{{ article.title }}"/>
+        </div>
+
+        <div class="mb-3">
+          <label for="summary" class="form-label">Résumé</label>
+          <textarea class="form-control" name="summary" >{{ article.summary }}</textarea>  
+        </div>
+
+        <div class="mb-3">
+          <label for="floatingTextarea2">Contenu</label>
+          <textarea class="form-control" name="content">{{ article.content }}</textarea>  
+        </div>
+
+        <div class="mb-3">
+          <label for="author" class="form-label">Auteur</label>
+          <input type="text" class="form-control" name="author" value="{{ article.author }}"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Modifier</button>
+        <a class="btn btn-danger">Annuler</a>
+        
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
 <form method="post">
   {% csrf_token %}
   <label for="name">Name:</label>
@@ -16,5 +54,5 @@
   <input type="text" id="author" name="author" value="{{ contact.author }}"><br>
   <button type="submit">Save</button>
 </form>
-<a href="{% url 'page4' article.id %}">Cancel</a>
-{% endblock %}
+<a href="{% url 'page4' %}">Cancel</a>
+

@@ -12,11 +12,10 @@ def list_views(request):
 
 
 def details_views(request):
-  return render(request, "page_s/details_article.html")
+  articles = Article.objects.all()
+  #article = get_or_404()
+  return render(request, "page_s/details_article.html", context={'articles':articles})
 
-
-#def create_article(request):
-#  return render(request, "page_s/create_article.html")
 
 def create_article(request):
   if request.method == "POST":
@@ -33,36 +32,51 @@ def create_article(request):
     )
 
     article.save()
-    #return redirect("page_s/list_articles.html")
+    return redirect("page2")
 
   return render(request,"page_s/create_article.html")
 
 
+
 def update_article(request, id):
-  """article = get_object_or_404(Article, id=id)
+
+  article = get_object_or_404(Article, id=id)
   if request.method == "POST":
     title = request.POST['title']
     summary = request.POST['summary']
     content = request.POST['content']
     author = request.POST['author']
 
-    article.save()
-  """
+    Article.objects.filter(id=article.id).update(
+      title=title,
+      summary=summary,
+      content=content,
+      author=author
+    )
 
-  article = get_object_or_404(Article, id=id)
-  if request.method == "POST":
+    """
+    article = get_object_or_404(Article, id=id)
+    if request.method == "POST":
     article.title = request.POST.get('title')
     article.summary = request.POST.get('summary')
     article.content = request.POST.get('content')
-    article.author = request.POSTget('author')
+    article.author = request.POST.get('author')
 
     article.save()
+    """
+    return redirect('page2')
+    
+  return render(request, "page_s/update_article.html", {'article':article})
 
-    #return redirect()
-  return render(request, "page_s/update_article.html")
 
 
-def delete_article(request):
+def delete_article(request, id):
+  article = get_object_or_404(Article, id=id)
+  if request.method == "POST":
+    article = Article.objects.filter(id=article.id)
+    article.delete()
+    return redirect("page2")
+
   return render(request, "page_s/delete_article.html")
 
 
