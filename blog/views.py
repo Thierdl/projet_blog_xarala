@@ -8,13 +8,14 @@ def index_views(request):
 
 
 def list_views(request):
-  return render(request, "page_s/list_articles.html")
-
-
-def details_views(request):
   articles = Article.objects.all()
-  #article = get_or_404()
-  return render(request, "page_s/details_article.html", context={'articles':articles})
+  return render(request, "page_s/list_articles.html", {"articles":articles})
+
+
+def details_views(request, id):
+  #articles = Article.objects.all()
+  article = get_object_or_404(Article, id=id)
+  return render(request, "page_s/details_article.html", {"article":article})
 
 
 def create_article(request):
@@ -32,7 +33,7 @@ def create_article(request):
     )
 
     article.save()
-    return redirect("page2")
+    return redirect("page1")
 
   return render(request,"page_s/create_article.html")
 
@@ -40,14 +41,14 @@ def create_article(request):
 
 def update_article(request, id):
 
-  article = get_object_or_404(Article, id=id)
+  articles = get_object_or_404(Article, id=id)
   if request.method == "POST":
     title = request.POST['title']
     summary = request.POST['summary']
     content = request.POST['content']
     author = request.POST['author']
 
-    Article.objects.filter(id=article.id).update(
+    Article.objects.filter(id=articles.id).update(
       title=title,
       summary=summary,
       content=content,
@@ -64,9 +65,9 @@ def update_article(request, id):
 
     article.save()
     """
-    return redirect('page2')
+    return redirect('page1')
     
-  return render(request, "page_s/update_article.html", {'article':article})
+  return render(request, "page_s/update_article.html", {'articles':articles})
 
 
 

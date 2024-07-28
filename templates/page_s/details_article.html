@@ -4,13 +4,14 @@
 
 <div class="pt-5">
   <h1 class="text-center pt-5">Les détails d'un article</h1>
+  
   <div class="container pt-5">
-    {% for article in articles %}
     <div>
       <p>Titre :</br> {{ article.title }}</p>
       <p>Résumé :</br> {{ article.summary }}</p>
       <p>Contenu :</br> {{ article.content }}</p>
       <p>Auteur :</br> {{ article.author }}</p>
+      <p>Creat : {{ article.date_create|date:"d M Y, H:i a" }}</p>
       <a href="{% url 'page4' article.id %}" class="btn btn-dark">Modifier</a>
       
       <!-- Bouton pour ouvrir la fenêtre modale -->
@@ -42,7 +43,6 @@
         </div>
       </div>
     </div>
-    {% endfor %}
   </div>
 </div>
 {% endblock %}

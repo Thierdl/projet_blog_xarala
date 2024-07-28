@@ -6,7 +6,7 @@ class Article(models.Model):
   summary = models.TextField(max_length=500) 
   content = models.TextField()
   author = models.CharField(max_length=100)
-  date_create = models.DateField(auto_now_add=True)
+  date_create = models.DateTimeField(auto_now_add=True)
   date_updat = models.DateField(auto_now=True) 
 
   def __str__(self) -> str:
