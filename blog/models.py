@@ -9,6 +9,6 @@ class Article(models.Model):
   date_create = models.DateTimeField(auto_now_add=True)
   date_updat = models.DateField(auto_now=True) 
 
-  def __str__(self) -> str:
+  def __str__(self):
     return f"{self.title} {self.auteur}"
 

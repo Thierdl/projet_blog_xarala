@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index_views(request):
@@ -17,7 +17,7 @@ def details_views(request, id):
   article = get_object_or_404(Article, id=id)
   return render(request, "page_s/details_article.html", {"article":article})
 
-
+@login_required(login_url="/login/")
 def create_article(request):
   if request.method == "POST":
     title = request.POST["title"]
@@ -39,6 +39,7 @@ def create_article(request):
 
 
 
+@login_required(login_url="/login/")
 def update_article(request, id):
 
   articles = get_object_or_404(Article, id=id)
@@ -71,6 +72,7 @@ def update_article(request, id):
 
 
 
+@login_required(login_url="/login/")
 def delete_article(request, id):
   article = get_object_or_404(Article, id=id)
   if request.method == "POST":
