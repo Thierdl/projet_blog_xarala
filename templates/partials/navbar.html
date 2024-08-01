@@ -16,16 +16,27 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'page1' %}">Liste des Articles</a>
         </li>
-
+        
         <li class="nav-item">
           <a class="nav-link" href="{% url 'page3' %}">Ajouter Une Article</a>
         </li>
 
         <li class="nav-item">
-          <form method="post" action="{% url 'logout' %}">{% csrf_token %}
-            <button type="submit">Déconnection</button>
-          </form>
+          {{ article.author }}</p>
         </li>
+
+        <div class="letf">
+          {% if request.user.is_authenticated %}
+          <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+            <button class="btn btn-outline-danger" type="submit">Déconnexion</button>
+          </form>
+
+          {% else %}
+          <form method="post" action="{% url 'login' %}">{% csrf_token %}
+            <button class="btn btn-secondary" type="submit">connexion</button>
+          </form>
+          {% endif %}
+        </div>
        
         <li class="nav-item dropdown">
           <ul class="dropdown-menu">

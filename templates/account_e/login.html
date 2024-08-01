@@ -1,21 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-center">Login</h3>
-<div class="container">
-  <div class="row">
-    <div class="card col-md-5 col-auto m-auto">
-      <form action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-        <div class="form-groupl-1">
-          {{ form.as_p }}
-        </div>
-        <button type="submit" class="btn btn-dark">Connexion</button>
-      </form> 
 
-      <p>
-        creer un compt si vous n'avez pas <a href="{% url 'signup' %}">Sign up</a>
-      </p>
+<div class="m-auto">
+  <h3 class="text-center">Login</h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="card col-md-5 col-auto m-auto">
+        <form action="{% url 'login' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-groupl-1">
+            {{ form.as_p }}
+          </div> 
+
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-dark">Connexion</button>
+          </div>
+          
+        </form> 
+
+        <p>
+          Avez-vous un compt ? <a href="{% url 'signup' %}">Sign up</a>
+        </p>
+      </div>
     </div>
   </div>
 </div>

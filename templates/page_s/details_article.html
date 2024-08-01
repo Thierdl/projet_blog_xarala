@@ -12,12 +12,26 @@
       <p>Contenu :</br> {{ article.content }}</p>
       <p>Auteur :</br> {{ article.author }}</p>
       <p>Creat : {{ article.date_create|date:"d M Y, H:i a" }}</p>
-      <a href="{% url 'page4' article.id %}" class="btn btn-dark">Modifier</a>
+
+    
+      {% if user.is_authenticated and user == article.author %}
+    
+      
+ 
+      <form action="{% url 'delete_article' article.id %}" method="POST">{% csrf_token %}
+        <a href="{% url 'page4' article.id %}" class="btn btn-dark">Modifier</a>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{ article.id }}">Supprimer</button>
+      </form>
+
+     {% endif %}
+  
       
       <!-- Bouton pour ouvrir la fenêtre modale -->
+      <!--
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{ article.id }}">
         Supprimer
       </button>
+      -->
       
       <!-- Fenêtre modale -->
       <div class="modal fade" id="deleteModal-{{ article.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -47,3 +61,10 @@
 </div>
 {% endblock %}
 
+{% if user.is_authenticated and user == article.author %}
+    <a href="{% url 'update_article' article.id %}">Modifier</a>
+    <form action="{% url 'delete_article' article.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Supprimer</button>
+    </form>
+{% endif %}

@@ -4,16 +4,17 @@ class LoginForm(forms.Form):
   user_name = forms.CharField(label="User Name",
                               widget=forms.TextInput(
                                 attrs={
-                                  "class" : "form-control"
+                                  "class":"form-control"
                                 }
                               ))
   
   pass_word = forms.CharField(label="Pass Word",
                                   widget=forms.PasswordInput(
                                     attrs={
-                                      "class" : "form-controls"
+                                      "class":"form-controls"
                                     }
                                   ))
+
 
 
 class SignUpForm(forms.Form):

@@ -10,7 +10,15 @@
         <div class="form-groupl-1">
           {{ form.as_p }}
         </div>
-        <button type="submit" class="btn btn-dark">Creer</button>
+
+        <div class="d-grip gap-2">
+          <button type="submit" class="btn btn-dark">Creer</button>
+        </div>
+
+        <div class="text-center">
+          Avez-vous un compt ?<a href="{% url 'login' %}">Login</a>
+        </div>
+       
       </form> 
     </div>
   </div>
