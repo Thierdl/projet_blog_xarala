@@ -53,6 +53,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'projet_blog.urls'
 
+LOGIN_REDIRECT_URL = '/blog/list_views/'
+# settings.py
+#LOGIN_URL = '/login/'
+#LOGIN_REDIRECT_URL = 'page1'      
+#LOGOUT_REDIRECT_URL = '/'      
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

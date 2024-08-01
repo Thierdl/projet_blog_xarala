@@ -13,9 +13,10 @@ def list_views(request):
 
 
 def details_views(request, id):
-  #articles = Article.objects.all()
   article = get_object_or_404(Article, id=id)
   return render(request, "page_s/details_article.html", {"article":article})
+
+
 
 @login_required(login_url="/login/")
 def create_article(request):
@@ -56,16 +57,6 @@ def update_article(request, id):
       author=author
     )
 
-    """
-    article = get_object_or_404(Article, id=id)
-    if request.method == "POST":
-    article.title = request.POST.get('title')
-    article.summary = request.POST.get('summary')
-    article.content = request.POST.get('content')
-    article.author = request.POST.get('author')
-
-    article.save()
-    """
     return redirect('page1')
     
   return render(request, "page_s/update_article.html", {'articles':articles})
@@ -78,8 +69,8 @@ def delete_article(request, id):
   if request.method == "POST":
     article = Article.objects.filter(id=article.id)
     article.delete()
-    return redirect("page2")
-
+    return redirect("page1")
+  
   return render(request, "page_s/delete_article.html")
 
 

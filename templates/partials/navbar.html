@@ -22,7 +22,9 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+            <button type="submit">Déconnection</button>
+          </form>
         </li>
        
         <li class="nav-item dropdown">
@@ -62,7 +64,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="{% url 'logout' %}">Déconnection</a>
         </li>
        
         <li class="nav-item dropdown">
@@ -70,6 +72,9 @@
             <li><a class="dropdown-item" href="{% url 'page1' %}">Liste des Articles</a></li>
             <li><a class="dropdown-item" href="#">destails Articles</a></li>
             <li><a class="dropdown-item" href="{% url 'page3' %}">Ajouter un Article</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Déconnection</a>
+            </li>
           </ul>
         </li>
       </ul>
