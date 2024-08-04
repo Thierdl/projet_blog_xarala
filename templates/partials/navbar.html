@@ -21,11 +21,7 @@
           <a class="nav-link" href="{% url 'page3' %}">Ajouter Une Article</a>
         </li>
 
-        <li class="nav-item">
-          {{ article.author }}</p>
-        </li>
-
-        <div class="letf">
+        <div class="status_">
           {% if request.user.is_authenticated %}
           <form method="post" action="{% url 'logout' %}">{% csrf_token %}
             <button class="btn btn-outline-danger" type="submit">Déconnexion</button>

@@ -39,6 +39,15 @@ class SignUpForm(forms.Form):
                                 }
                               ))
   
+  """
+  email = forms.CharField(label="Email",
+                          widget=forms.EmailInput(
+                            atrrs={
+                              "class":"form-control"
+                            }
+                          ))
+  """
+
   pass_word_1= forms.CharField(label="Pass Word",
                               widget=forms.PasswordInput(
                                 attrs={

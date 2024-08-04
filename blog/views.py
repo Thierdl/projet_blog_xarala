@@ -19,7 +19,6 @@ def details_views(request, id):
   return render(request, "page_s/details_article.html", {"article":article})
 
 
-
 @login_required(login_url="/login/")
 def create_article(request):
   if request.method == "POST":
@@ -32,6 +31,7 @@ def create_article(request):
       title=title,
       summary=summary,
       content=content,
+      
       author=request.user
     )
 

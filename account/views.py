@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect
 from .import forms
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import  User
-from django.urls import reverse
 
 
+#LOGIN_FUNCTION
 def login_view(request):
+
   #create_formuler
   form = forms.LoginForm(request.POST or None)
 
@@ -19,28 +20,38 @@ def login_view(request):
     #authenticate
     user = authenticate(username=user_name, password=pass_word)
 
-    #Cconnexion
     if user is not None:
+      
+      #Cconnexion
       login(request, user)
       return redirect("page1")
       
-    
-    # render  
+    # render _html 
   return render(request, "account_e/login.html", {"form":form})
 
 
-
+#SIGNUP_FUNCTION
 def signup_view(request):
+
+  #checke
   if request.method == "POST":
+
     form = forms.SignUpForm(request.POST)
+
+    #vericated
     if form.is_valid():
+
+      #recuperation_data
       last_name = form.cleaned_data.get("last_name")
       first_name = form.cleaned_data.get("first_name")
       user_name = form.cleaned_data.get("user_name")
       pass_word_1 = form.cleaned_data.get("pass_word_1")
       pass_word_2 = form.cleaned_data.get("pass_word_2")
 
+      #verificate, if password 1 et 2
       if pass_word_1 != pass_word_2:
+
+        
         form.add_error("pass_word_2", "les deux mots de pass sont different")
 
       else:
