@@ -3,10 +3,23 @@ body {
 }
 
 
+.image-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  
+}
+
+.image-details .img-fluid {
+  width: 70rem;
+}
+
 h2 {
   background-color: rgba(134, 89, 33, 0.801);
   color: white;
   border-radius: 1rem;
+  
 }
 
 p {
