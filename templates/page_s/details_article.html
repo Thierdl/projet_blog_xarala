@@ -2,8 +2,17 @@
 {% block content %}
 {% include 'partials/navbar.html' %}
 
-<div class="pt-5">
+<div class="pt-5 pb-5">
   <h1 class="text-center pt-5">Les détails d'un article</h1>
+
+  <div class="image-container">
+    {% if article.image %}
+    
+      <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid image-center" alt="Responsive image">
+    {% else %}
+      <p>Pas d'image</p>
+    {% endif %}
+  </div>
   
   <div class="container pt-5">
     <div>

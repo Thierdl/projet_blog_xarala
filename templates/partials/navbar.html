@@ -13,15 +13,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'page1' %}">Liste des Articles</a>
+          <a class="nav-link active" href="{% url 'page1' %}">Liste des Articles</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'page3' %}">Ajouter Une Article</a>
+          <a class="nav-link active" href="{% url 'page3' %}">Ajouter Une Article</a>
         </li>
+      </ul>
 
-        <div class="status_">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
           {% if request.user.is_authenticated %}
           <form method="post" action="{% url 'logout' %}">{% csrf_token %}
             <button class="btn btn-outline-danger" type="submit">Déconnexion</button>
@@ -32,7 +35,9 @@
             <button class="btn btn-secondary" type="submit">connexion</button>
           </form>
           {% endif %}
-        </div>
+        </li>
+      </ul>
+        
        
         <li class="nav-item dropdown">
           <ul class="dropdown-menu">
@@ -45,46 +50,8 @@
     </div>
   </div>
 </nav>
+
+
 
 {% endblock %}
 
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">BLOG</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNavDropdown" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Article</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'page1' %}">Contact</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'page3' %}">About</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Déconnection</a>
-        </li>
-       
-        <li class="nav-item dropdown">
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'page1' %}">Liste des Articles</a></li>
-            <li><a class="dropdown-item" href="#">destails Articles</a></li>
-            <li><a class="dropdown-item" href="{% url 'page3' %}">Ajouter un Article</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Déconnection</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>

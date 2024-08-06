@@ -1,0 +1,14 @@
+body {
+  background-color: rgb(255, 238, 218);
+}
+
+
+h2 {
+  background-color: rgba(134, 89, 33, 0.801);
+  color: white;
+  border-radius: 1rem;
+}
+
+p {
+  color: rgba(134, 89, 33, 0.801);
+}

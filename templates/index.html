@@ -2,17 +2,23 @@
 {% block content %}
 
 {% include 'partials/navbar.html' %}
-<div class="p-4">
-  <div class="p-auto">
-    <h3 class="text-center pb-4">BIENVENU SUR NOTRE BLOG</h3>
+
+<div class="cont">
+  <div class="container container-fluid p-0 mt-4">
+    <img src="https://www.organic-farm.co.jp/images/material/bnr_blog.jpg" alt="image" class="img-fluid w-100">
   </div>
-  <div class="border border-dark p-3 mb-5 border-opacity-75 rounded-4">
+
+  <div class="p-4">
+    <h2 class="text-center container p-md-3">BIENVENU SUR NOTRE BLOG</h2>
+  </div>
+
+  <div class="border border-dark p-3 m-4 border-opacity-75 rounded-4 ">
     <p>Chers lecteurs,<br/>
 
       Nous sommes ravis de vous accueillir sur notre blog, un espace dédié à 
       l'échange et à la découverte. Ici, vous trouverez des articles variés sur 
-      des sujets passionnants comme la technologie, l'art, et l'éducation.<br/>
-    
+      des sujets passionnants comme la technologie, l'art, et l'éducation.
+
       Nous voulons créer une communauté où chacun peut partager ses idées et 
       apprendre des autres. N'hésitez pas à explorer, commenter, et partager 
       les articles qui vous plaisent.<br/>
@@ -26,47 +32,10 @@
     </p>
   </div>
 
-  <div class="text-center">
+  <div class="text-center pb-5">
     <a href="{% url 'page1' %}" class="btn btn-dark">aller à...</a>
   </div>
 </div>
 
 {% endblock %}
-
-
-
-
-<div class="container mt-5">
-  <div class="card">
-      <div class="card-body">
-          <p class="card-text">
-              <span id="dots">This is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional textThis is the additional texts...</span>
-              <span id="more" style="display: none;">
-                  This is the additional text that will be displayed when "Read More" is clicked. You can add as much content as needed here.
-              </span>
-          </p>
-          <button onclick="toggleReadMore()" id="readMoreBtn" class="btn btn-primary">Read More</button>
-      </div>
-  </div>
-</div>
-
-<script>
-  function toggleReadMore() {
-      var dots = document.getElementById("dots");
-      var moreText = document.getElementById("more");
-      var btnText = document.getElementById("readMoreBtn");
-
-      if (dots.style.display === "none") {
-          dots.style.display = "inline";
-          btnText.innerHTML = "Read More";
-          moreText.style.display = "none";
-      } else {
-          dots.style.display = "none";
-          btnText.innerHTML = "Read Less";
-          moreText.style.display = "inline";
-      }
-  }
-</script>
-
-
 
