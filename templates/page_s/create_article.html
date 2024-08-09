@@ -3,8 +3,8 @@
 {% include 'partials/navbar.html' %}
 <h3 class="text-center mt-5 pt-3">Créer Une Article</h3>
 <div class="container">
-  <div class="col-md-5 m-auto">
-    <div class="card card-body">
+  <div class="col-md-5 m-auto shadow p-3 mb-5 bg-body-tertiary rounded">
+    <div class="card card-body shadow p-3 mb-5 bg-body-tertiary rounded">
       <form method="POST"> {% csrf_token %}
 
         <div class="mb-3">
@@ -22,13 +22,12 @@
           <textarea class="form-control" name="content" required></textarea>  
         </div>
 
-       
-<!--
         <div class="mb-3">
-          <label for="author" class="form-label">Auteur</label>
-          <input type="text" class="form-control" name="author"/>
+          <input type="file" class="form-control" aria-label="file example" name="image" required>
+          <div class="invalid-feedback">Example invalid form file feedback</div>
         </div>
--->
+    
+
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-outline-dark">Enregistrer</button>
         </div>

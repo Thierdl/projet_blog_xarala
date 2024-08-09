@@ -25,14 +25,15 @@ def create_article(request):
     title = request.POST["title"]
     summary = request.POST["summary"]
     content = request.POST["content"]
-    #author = request.POST["author"]
+    image = request.POST["image"]
 
     article = Article.objects.create(
       title=title,
       summary=summary,
       content=content,
       
-      author=request.user
+      author=request.user,
+      image=image,
     )
 
     article.save()

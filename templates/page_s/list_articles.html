@@ -10,7 +10,8 @@
   <div class="row mt-4">
     {% for article in articles %}
       <div class="col-md-4">
-        <div class="card mb-4 rounded-4">
+
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded p-3 mb-5 bg-body-tertiary rounded">
           <div class="card-body">
             <div class="image-container">
               {% if article.image %}
@@ -22,8 +23,7 @@
             </div>
 
             <h5 class="card-title">{{ article.title }}</h5>
-            <p class="card-text">{{ article.author }}</p>
-            <p class="card-text">{{ article.date_create }}</p>
+            <p class="card-text">{{ article.author }}, {{ article.date_create }}</p>
             <a href="{% url 'page2' article.id %}" class="btn btn-dark">Lire...</a>
           </div>
         </div>
@@ -32,4 +32,7 @@
   </div>
 </div>
 
+
+
 {% endblock %}
+

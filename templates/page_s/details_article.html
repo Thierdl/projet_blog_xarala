@@ -4,34 +4,29 @@
 
 <div class="contai">
   
-  <div class="image-details">
+  <div class="image-details shadow p-3 mb-5 bg-body-tertiary rounded">
     {% if article.image %}
     
-      <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid p-0" alt="Responsive image">
+      <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid p-0 shadow p-3 mb-5 bg-body-tertiary rounded" alt="Responsive image">
     {% else %}
       <p>Pas d'image</p>
     {% endif %}
   </div>
 
-  <div class="pt-5 pb-5">
-    <h3 class="text-center pt-5">Les détails d'un article</h3>
+  <div class="pb-5">
+    <h3 class="text-center pt-5">Les détails d'un Article</h3>
   </div>
     
-  <div class="container pt-5">
-    <div>
-      <p>Titre :</br> {{ article.title }}</p>
-      <p>Résumé :</br> {{ article.summary }}</p>
-      <p>Contenu :</br> {{ article.content }}</p>
-      <p>Auteur : {{ article.author }}</p>
-      <p>Creat : {{ article.date_create|date:"d M Y, H:i a" }}</p>
-      <p>Update : {{ article.date_updat|date:"d M Y, H:i a" }}</p>
-
-      
-
+  <div class="container">
+    <div class="pt-5">
+      <p>{{ article.title }}</p>
+      <p>{{ article.summary }}</p></br>
+      <p>{{ article.content }}</p></br>
+      <p>Par, {{ article.author }}, {{ article.date_create|date:"d M Y, H:i a" }} 
+      <p>Update : {{ article.date_updat|date:"d M Y, H:i a" }}</p></br>
     
       {% if user.is_authenticated and user == article.author %}
     
-
       <form action="{% url 'delete_article' article.id %}" method="POST">{% csrf_token %}
         
         <a href="{% url 'page4' article.id %}" class="btn btn-dark">Modifier</a>
