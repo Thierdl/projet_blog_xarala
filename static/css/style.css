@@ -11,8 +11,10 @@ body {
   
 }
 
-.image-details .img-fluid {
-  width: 70rem;
+.image-details img {
+  width: 55%;  
+  height: 50%; 
+  margin: auto;
 }
 
 h2 {
@@ -39,10 +41,6 @@ span {
 }
 
 
-.img-fluid {
-  height: 2%;
-}
-
 .carousel-inner {
   width: 35%;  /* Réduit la largeur de l'image à 80% de la largeur de son conteneur parent */
   height: 20%;  /* Conserve les proportions de l'image */
@@ -52,3 +50,4 @@ span {
 .carousel-item {
   display: inline-block;
 } 
+

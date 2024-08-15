@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.http import HttpResponseForbidden
 # Create your views here.
 
-from django.http import HttpResponseForbidden
 
 def index_views(request):
   return render(request, "index.html")
@@ -11,7 +12,10 @@ def index_views(request):
 
 def list_views(request):
   articles = Article.objects.all()
-  return render(request, "page_s/list_articles.html", {"articles":articles})
+  paginator = Paginator(articles, 9)
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+  return render(request, "page_s/list_articles.html", {"page_obj":page_obj})
 
 
 def details_views(request, id):
@@ -86,6 +90,18 @@ def delete_article(request, id):
 
 
 
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from .models import Article  # Assurez-vous de remplacer cela par votre modèle d'article
+
+def article_list(request):
+    articles = Article.objects.all()  # Récupérer tous les articles
+    paginator = Paginator(articles, 10)  # Limiter à 10 articles par page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'votre_template.html', {'page_obj': page_obj})
 
 
 

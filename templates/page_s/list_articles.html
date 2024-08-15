@@ -4,6 +4,77 @@
 
 <div class="container mt-6 pt-3">
   <div class="title mt-5 pt-2">
+    <h1 class="text-center mb-5">La liste des Articles</h1>
+  </div>
+
+  <div class="row mt-4">
+    {% for article in page_obj %}
+      <div class="col-md-4">
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded p-3 mb-5 bg-body-tertiary rounded">
+          <div class="card-body">
+            <div class="image-container">
+              {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid image-center">
+              {% else %}
+                <p>Pas d'image</p>
+              {% endif %}
+            </div>
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.author }}, {{ article.date_create }}</p>
+            <a href="{% url 'page2' article.id %}" class="btn btn-dark">Lire...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<nav aria-label="Page navigation example" >
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"></a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link"></a>
+      </li>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <li class="page-item active">
+          <a class="page-link" href="#">{{ num }} <span class="sr-only">(current)</span></a>
+        </li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link">Next</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+<div class="container mt-6 pt-3">
+  <div class="title mt-5 pt-2">
     <h1 class="text-center mb-5 ">La liste des Articles</h1>
   </div>
 
@@ -32,7 +103,18 @@
   </div>
 </div>
 
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 
-
-{% endblock %}
 
