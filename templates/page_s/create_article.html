@@ -5,7 +5,7 @@
 <div class="container">
   <div class="col-md-5 m-auto shadow p-3 mb-5 bg-body-tertiary rounded">
     <div class="card card-body shadow p-3 mb-5 bg-body-tertiary rounded">
-      <form method="POST"> {% csrf_token %}
+      <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
 
         <div class="mb-3">
           <label for="title" class="form-label">Titre</label>

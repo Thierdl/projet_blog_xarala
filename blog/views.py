@@ -3,6 +3,8 @@ from .models import Article
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponseForbidden
+
+
 # Create your views here.
 
 
@@ -26,10 +28,10 @@ def details_views(request, id):
 @login_required(login_url="/login/")
 def create_article(request):
   if request.method == "POST":
-    title = request.POST["title"]
-    summary = request.POST["summary"]
-    content = request.POST["content"]
-    image = request.POST["image"]
+    title = request.POST.get("title")
+    summary = request.POST.get("summary")
+    content = request.POST.get("content")
+    image = request.FILES.get("image")
 
     article = Article.objects.create(
       title=title,
@@ -56,24 +58,25 @@ def update_article(request, id):
         return HttpResponseForbidden("Vous n'êtes pas autorisé à modifier cet article.")
 
   if request.method == "POST":
-    title = request.POST['title']
-    summary = request.POST['summary']
-    content = request.POST['content']
-    #author = request.POST['author']
+    title = request.POST.get("title")
+    summary = request.POST.get("summary")
+    content = request.POST.get("content")
+    image = request.FILES.get("image")
 
-    Article.objects.filter(id=articles.id).update(
-      title=title,
-      summary=summary,
-      content=content,
-      #author=request.user
-    )
+    articles.title = title
+    articles.summary = summary
+    articles.content = content
+    if image:
+        articles.image = image
+
+    articles.save()
 
     return redirect('page1')
     
   return render(request, "page_s/update_article.html", {'articles':articles})
 
 
-
+#delete
 @login_required(login_url="/login/")
 def delete_article(request, id):
   article = get_object_or_404(Article, id=id)
@@ -88,15 +91,10 @@ def delete_article(request, id):
   
   return render(request, "page_s/delete_article.html", {"article": article})
 
-
-
-from django.core.paginator import Paginator
-from django.shortcuts import render
-from .models import Article  # Assurez-vous de remplacer cela par votre modèle d'article
-
+#paginator
 def article_list(request):
-    articles = Article.objects.all()  # Récupérer tous les articles
-    paginator = Paginator(articles, 10)  # Limiter à 10 articles par page
+    articles = Article.objects.all()  # Récupé toration de tous les articles
+    paginator = Paginator(articles, 10)  # Limitation à 10 articles par page
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
