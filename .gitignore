@@ -1,0 +1,13 @@
+# Ignorer les fichiers compilés Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorer les environnements virtuels
+my_venv/
+venv/
+
+# Ignorer les fichiers de migration inutiles (si nécessaire)
+*.sqlite3
+db.sqlite3
