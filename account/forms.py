@@ -18,6 +18,7 @@ class LoginForm(forms.Form):
 
 
 class SignUpForm(forms.Form):
+
   last_name = forms.CharField(label="Last Name",
                          widget=forms.TextInput(
                            attrs={
@@ -35,18 +36,9 @@ class SignUpForm(forms.Form):
   user_name = forms.CharField(label="User Name",
                               widget=forms.TextInput(
                                 attrs={
-                                  "class":"form-control"
+                                  "class":"form-control"                                                    
                                 }
                               ))
-  
-  """
-  email = forms.CharField(label="Email",
-                          widget=forms.EmailInput(
-                            atrrs={
-                              "class":"form-control"
-                            }
-                          ))
-  """
 
   pass_word_1= forms.CharField(label="Pass Word",
                               widget=forms.PasswordInput(
@@ -61,7 +53,53 @@ class SignUpForm(forms.Form):
                                         "class":"form-control"
                                       }
                                     ))
-  
+ 
 
-  
-  
+ 
+
+
+
+"""
+from django import forms
+
+class SignUpForm(forms.Form):
+
+    last_name = forms.CharField(
+        max_length=50, 
+        required=True, 
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )
+    first_name = forms.CharField(
+        max_length=50, 
+        required=True, 
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )
+    user_name = forms.CharField(
+        max_length=50, 
+        required=True, 
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )
+    pass_word_1 = forms.CharField(
+        max_length=50, 
+        required=True, 
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'})
+    )
+    pass_word_2 = forms.CharField(
+        max_length=50, 
+        required=True, 
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'})
+    )
+"""
+
+
+
+
+
+"""
+  email = forms.CharField(label="Email",
+                          widget=forms.EmailInput(
+                            atrrs={
+                              "class":"form-control"
+                            }
+                          ))
+"""

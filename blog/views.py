@@ -66,6 +66,7 @@ def update_article(request, id):
     articles.title = title
     articles.summary = summary
     articles.content = content
+    
     if image:
         articles.image = image
 
