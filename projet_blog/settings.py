@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7aud_8pft5r%*js0b6!z%22*3yga^yruol%7@l^vd5l_s)wp(-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '8000', 'https://projet-blog.onrender.com'] #https://projet-blog.onrender.com
+ALLOWED_HOSTS = ['localhost', 'projet-blog.onrender.com'] #https://projet-blog.onrender.com
 
 
 # Application definition
