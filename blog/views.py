@@ -94,13 +94,13 @@ def delete_article(request, id):
 
 #paginator
 def article_list(request):
-    articles = Article.objects.all()  # Récupé toration de tous les articles
+    articles = Article.objects.all()  # Récupération de tous les articles
     paginator = Paginator(articles, 10)  # Limitation à 10 articles par page
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'votre_template.html', {'page_obj': page_obj})
+    return render(request, 'list_article.html', {'page_obj': page_obj})
 
 
 

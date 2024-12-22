@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 
 # Ignorer les environnements virtuels
-my_venv/
+my-venv/
 venv/
 
 # Ignorer les fichiers de migration inutiles (si nécessaire)
