@@ -26,21 +26,10 @@ class LoginForTest(TestCase):
             "last_name" : "albert",
             "first_name" : "mangua",
             "user_name" : "malbert",
-            "pass_word_1" : "12345",
-            "pass_word_2" : "12345",
-        }
+                }
 
-        form = SignUpForm(data=form_data)
 
-        self.assertTrue(form.is_valid())
-
-        #   -last_name
-        #   -firstname
-        #   -uqer_name
-        #   -pass_word_1
-        #   -pass_word_2
-
-        #verifier
+#test_form_invalid
 
     
 """
