@@ -5,8 +5,6 @@ from .forms import LoginForm, SignUpForm
 
 class LoginForTest(TestCase):
     def test_loginform_valid(self):
-        
-        #donnée valide pour le formulaire
         form_data = {
             "user_name" : "name_test",
             "pass_word" : "password_test"
@@ -20,13 +18,15 @@ class LoginForTest(TestCase):
     
 
     def test_signup_form_valid(self):
-        #soumettre
-
+    
         form_data = {
             "last_name" : "albert",
             "first_name" : "mangua",
             "user_name" : "malbert",
                 }
+        form = SignUpForm(data=form_data)
+        
+        self.assertFalse(form.is_valid())
 
 
 #test_form_invalid
