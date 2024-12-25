@@ -27,7 +27,7 @@ def login_view(request):
       return redirect("page1")
       
     # render _html 
-  return render(request, "account_e/login.html", {"form":form})
+  return render(request, "account_e/login.html", {"form":form, "user":user})
 
 
 #SIGNUP_FUNCTION
