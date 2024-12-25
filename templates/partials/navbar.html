@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'index' %}">BLOG</a>
     
@@ -37,22 +36,30 @@
 
 
       <ul class="navbar-nav ms-auto">
-        <button type="button" class="btn btn-outline-light"> {{ user }} </button>
+
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light mr-4"> {{ user }} </button>
+        </li>
+
         <li class="nav-item">
           {% if request.user.is_authenticated %}
+
           <form method="post" action="{% url 'logout' %}" class="d-flex">
             {% csrf_token %}
-
             <button class="btn btn-outline-danger" type="submit">Déconnexion</button>
-            
           </form>
+
           {% else %}
+
           <form method="post" action="{% url 'login' %}" class="d-flex">
             {% csrf_token %}
             <button class="btn btn-secondary" type="submit">Connexion</button>
           </form>
+
           {% endif %}
+
         </li>
+        
       </ul>
       
     </div>
@@ -60,6 +67,11 @@
 </nav>
 
 {% endblock %}
+
+
+
+
+
 
 
 
