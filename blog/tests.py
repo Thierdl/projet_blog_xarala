@@ -20,30 +20,3 @@ class TestArticleModels(TestCase):
         self.assertEqual(self.data_article.summary, "xarala2025")
         self.assertEqual(self.data_article.content, "xaralatech")
         self.assertEqual(self.data_article.author, self.user)
-
-
-        
-"""
-    def create_article(request):
-  if request.method == "POST":
-    title = request.POST.get("title")
-    summary = request.POST.get("summary")
-    content = request.POST.get("content")
-    image = request.FILES.get("image")
-
-    article = Article.objects.create(
-      title=title,
-      summary=summary,
-      content=content,
-      
-      author=request.user,
-      image=image,
-    )
-
-    article.save()
-    return redirect("page1")
-
-  return render(request,"page_s/create_article.html")
-
-
-"""

@@ -2,7 +2,7 @@
 {% block content %}
 {% include 'partials/navbar.html' %}
 
-<div class="contai">
+<div class="contai mb-5">
   
   <div class="image-details shadow p-3 mb-5 bg-body-tertiary rounded">
     {% if article.image %}
@@ -66,18 +66,4 @@
   </div>
 </div>
 {% endblock %}
-
-
-
-
-
-  {% if user.is_authenticated and user == article.author %}
-      <a href="{% url 'update_article' article.id %}">Modifier</a>
-      <form action="{% url 'delete_article' article.id %}" method="POST">
-          {% csrf_token %}
-          <button type="submit">Supprimer</button>
-      </form>
-  {% endif %}
-
-
 

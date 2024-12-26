@@ -29,5 +29,3 @@ class LoginForTest(TestCase): #creation class de test
         self.assertFalse(form.is_valid())
 
 
-#test_for_password 
-
