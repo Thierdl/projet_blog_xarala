@@ -10,7 +10,8 @@ class Article(models.Model):
   author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
   date_create = models.DateTimeField(auto_now_add=True)
   date_updat = models.DateTimeField(auto_now=True) 
-  image = models.ImageField(null=True, upload_to="image_blog")
+
+  image = models.ImageField(null=True, upload_to="media/image_blog")
 
   def __str__(self):
     return f"{self.title} {self.author} {self.date_create}"

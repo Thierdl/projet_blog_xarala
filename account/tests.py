@@ -3,14 +3,14 @@ from .forms import LoginForm, SignUpForm
 
 #from django import forms
 
-class LoginForTest(TestCase):
+class LoginForTest(TestCase): #creation class de test
     def test_loginform_valid(self):
         form_data = {
             "user_name" : "name_test",
             "pass_word" : "password_test"
         }
 
-        form = LoginForm(data=form_data)
+        form = LoginForm(data=form_data) #
 
         #verification de la validation du formulaire
         self.assertTrue(form.is_valid())
@@ -27,4 +27,7 @@ class LoginForTest(TestCase):
         form = SignUpForm(data=form_data)
         
         self.assertFalse(form.is_valid())
+
+
+#test_for_password 
 
