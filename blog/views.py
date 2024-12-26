@@ -13,7 +13,7 @@ def index_views(request):
 
 
 def list_views(request):
-  articles = Article.objects.all().order_by('-date_create')
+  articles = Article.objects.all().order_by('-date_create') # order_by('- or +') trier par le plus recent(date de creation)
   paginator = Paginator(articles, 9)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
