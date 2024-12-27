@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7aud_8pft5r%*js0b6!z%22*3yga^yruol%7@l^vd5l_s)wp(-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1','projet-blog.onrender.com'] #https://projet-blog.onrender.com
 
@@ -134,10 +134,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 #STATICFILES_DIRS = [BASE_DIR / 'virtual_card_management/static']
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #chemin absolu sur le server ou django va stocker les les fichier téléchargées
 
 #MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/' #url public sous laquelle les fichiers média sont accessibles
 
 
 # Default primary key field type

@@ -1,0 +1,54 @@
+body {
+  background: white;
+}
+
+.image-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  
+  
+}
+
+.image-details img {
+  width: 55%;  
+  height: 50%; 
+  margin: auto;
+}
+
+h2 {
+  background-color: rgba(134, 89, 33, 0.801);
+  color: white;
+  border-radius: 1rem;
+  
+}
+
+p {
+  color: rgba(0, 0, 0, 0.801);
+}
+
+.card {
+  background-color: rgb(247, 247, 247);
+}
+
+span {
+  color: rgb(116, 64, 0);
+  font-size: 18x;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: initial;
+  font-weight: bold;
+}
+
+
+.carousel-inner {
+  width: 35%;  /* Réduit la largeur de l'image à 80% de la largeur de son conteneur parent */
+  height: 20%;  /* Conserve les proportions de l'image */
+  margin: auto; /* Centre l'image horizontalement si elle est plus petite que son conteneur */
+}
+
+.carousel-item {
+  display: inline-block;
+} 
+
+/*--------------------------------------------------------*/
