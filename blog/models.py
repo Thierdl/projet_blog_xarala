@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+from cloudinary.models import CloudinaryField
 
 class Article(models.Model):
   title = models.CharField(max_length=100)
@@ -10,8 +10,10 @@ class Article(models.Model):
   author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
   date_create = models.DateTimeField(auto_now_add=True)
   date_updat = models.DateTimeField(auto_now=True) 
+  
+  #image = models.ImageField(null=True, upload_to="media")
 
-  image = models.ImageField(null=True, upload_to="media/image_blog")
+  image = CloudinaryField('image', null=True)
 
   def __str__(self):
     return f"{self.title} {self.author} {self.date_create}"

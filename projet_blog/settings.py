@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+
+#cloudinary_settings
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7aud_8pft5r%*js0b6!z%22*3yga^yruol%7@l^vd5l_s)wp(-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1','projet-blog.onrender.com'] #https://projet-blog.onrender.com
 
@@ -43,12 +51,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'projet_blog.urls'
@@ -124,20 +134,36 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+cloudinary.config(
+    cloud_name='da6wwgjzp',   
+    api_key='557177486763622',        
+    api_secret='lZd-a57eLs2mcKUyCkxc5rwEry0'   
+)
+
+# Paramètres de stockage des fichiers dans Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Cloudinary pour les fichiers statiques 
+#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 #STATICFILES_DIRS = [BASE_DIR / 'virtual_card_management/static']
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #chemin absolu sur le server ou django va stocker les les fichier téléchargées
 
 #MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/' #url public sous laquelle les fichiers média sont accessibles
 
 
 # Default primary key field type
