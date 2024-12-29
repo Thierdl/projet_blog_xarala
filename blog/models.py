@@ -9,11 +9,11 @@ class Article(models.Model):
   content = models.TextField()
   author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
   date_create = models.DateTimeField(auto_now_add=True)
-  date_updat = models.DateTimeField(auto_now=True) 
+  date_updat = models.DateTimeField(auto_now=True)
   
   #image = models.ImageField(null=True, upload_to="media")
 
-  image = CloudinaryField('image', null=True)
+  image = CloudinaryField('image', null=True) #cloudinary
 
   def __str__(self):
     return f"{self.title} {self.author} {self.date_create}"

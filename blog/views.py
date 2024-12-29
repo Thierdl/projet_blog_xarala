@@ -103,18 +103,6 @@ def article_list(request):
     return render(request, 'list_article.html', {'page_obj': page_obj})
 
 
-def touch_back():
-   #touche de retour avec enregistres des dernier page consulter
-  return
-   # views.py
-
-def last_visited(request):
-    # Redirige vers l'URL précédemment enregistrée dans la session
-    last_url = request.session.get('last_visited', '/')
-    return redirect(last_url)
-
-
-
 
 
 

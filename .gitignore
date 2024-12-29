@@ -1,8 +1,5 @@
 # Ignorer les fichiers compilés Python
 *__pycache__/
-*.pyc
-*.pyo
-*.pyd
 
 # Ignorer les environnements virtuels
 *my-venv/
@@ -13,5 +10,5 @@
 *db.sqlite3
 
 # Ignorer les fichiers statiques générés
-*taticfiles/
-*tic/
+*staticfiles/
+*static/
